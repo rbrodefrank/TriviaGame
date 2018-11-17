@@ -1,0 +1,8 @@
+#start, .answer {
+    box-sizing: border-box;
+}
+
+#start:hover, .answer:hover {
+    background-color:  grey;
+    border: 3px, solid, red;
+}
