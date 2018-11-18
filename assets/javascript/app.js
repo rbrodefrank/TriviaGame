@@ -35,12 +35,39 @@ function displayTime() {
     $("#timer").text(`Time Remaining: ${time} Seconds`);
 }
 
+
+
 function startTimer() {
     interval = setInterval(function () {
         if (time <= 0) {
+            unanswered++;
             clearInterval(interval);
             console.log("clearInterval");
+
+            $("#question").text("Out of Time!");
+            $("#right-answer div:first-child").text(`The Correct Answer was: ${questionArray[count][1]}`)
+            $("#right-answer")[0].style.display = "block";
             //display answer
+
+            //countdown to next question
+            clearInterval(interval);
+            time = 5;
+            displayTime();
+            count++;
+            // console.log(`count: ${count}`);
+            interval = setInterval(function () {
+                if (time <= 0) {
+                    clearInterval(interval);
+                    console.log("clearInterval");
+                    $("#right-answer div:first-child").text("");
+                    $("#right-answer")[0].style.display = "none";
+                    //display next question
+                    newQuestion();
+                } else {
+                    time--;
+                    displayTime();
+                }
+            }, 1000);
         } else {
             time--;
             displayTime();
@@ -55,7 +82,7 @@ function randomizeAnswers() {
 
     //creating an array with numbers 1-4 in randomized order
     var arr = [];
-    for(var i = 1; i < newQuestion.length; i ++) {
+    for (var i = 1; i < newQuestion.length; i++) {
         var rand = Math.floor(Math.random() * (arr.length + 1));
         arr.splice(rand, 0, i);
     }
@@ -73,10 +100,10 @@ function randomizeAnswers() {
     $("#answer2").text(newQuestion[arr[1]]);
     $("#answer3").text(newQuestion[arr[2]]);
     $("#answer4").text(newQuestion[arr[3]]);
-    
+
 
     //Finding the currect answer and setting value to true
-    if(arr[0] == 1) {
+    if (arr[0] == 1) {
         $("#answer1").val(1);
     } else if (arr[1] == 1) {
         $("#answer2").val(1);
@@ -146,15 +173,17 @@ $(".answer").on("click", function () {
     //correct or incorrect
     var ans = $(this).val();
     console.log(ans);
-    
-    if(ans == 1) {
+
+    if (ans == 1) {
         $("#question").text("Correct!");
+        correct++;
     } else {
+        incorrect++;
         $("#question").text("Incorrect!");
-        $("#right-answer div:first-child").text(questionArray[count][1])
+        $("#right-answer div:first-child").text(`The Correct Answer was: ${questionArray[count][1]}`)
     }
 
-    console.log($("#right-answer"));
+    // console.log($("#right-answer"));
     $("#right-answer")[0].style.display = "block";
 
     //countdown to next question
