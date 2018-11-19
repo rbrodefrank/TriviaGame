@@ -7,22 +7,94 @@ var questionArray = [];
 var interval = 0;
 
 var q1 = [
-    "q1",
-    "a",
-    "i1",
-    "i2",
-    "i3",
+    "What year was Pixar founded?",
+    "1986",
+    "1990",
+    "1977",
+    "1984",
 ];
 questionArray.push(q1);
 
 var q2 = [
-    "q2",
-    "a",
-    "i1",
-    "i2",
-    "i3",
+    "What year did Pixar become a subsidiary of Disney?",
+    "2006",
+    "2008",
+    "2003",
+    "2010",
 ];
 questionArray.push(q2);
+
+var q3 = [
+    "What is Pixars highest grossing movie?",
+    "Finding Nemo",
+    "Toy Story",
+    "Monster's Inc.",
+    "Inside Out",
+];
+questionArray.push(q3);
+
+var q4 = [
+    "Which Pixar movie is ranked highest by critics?",
+    "Toy Story",
+    "Finding Nemo",
+    "Inside Out",
+    "Up",
+];
+questionArray.push(q4);
+
+var q5 = [
+    "What is the longest Pixar film?",
+    "Incredibles 2",
+    "Coco",
+    "Cars 2",
+    "Ratatouille",
+];
+questionArray.push(q5);
+
+var q6 = [
+    "How many Academy Awards (Oscars) has Pixar won?",
+    "15",
+    "18",
+    "13",
+    "16",
+];
+questionArray.push(q6);
+
+var q7 = [
+    "What Pixar movie has the most Oscar Nominations?",
+    "Wall-E",
+    "Ratatouille",
+    "Toy Story 3",
+    "Up",
+];
+questionArray.push(q7);
+
+var q8 = [
+    "What was Pixar's first feature film?",
+    "Toy Story",
+    "A Bug's Life",
+    "Monster's Inc.",
+    "Finding Nemo",
+];
+questionArray.push(q8);
+
+var q9 = [
+    "What secret phrase is hidden in every Pixar movie?",
+    "A113",
+    "B262",
+    "A1",   
+    "D21",
+];
+questionArray.push(q9);
+
+var q10 = [
+    "What's the famous pizza restaurant in the Pixar movies?",
+    "Pizza Planet",
+    "Pizza Place",
+    "Pizza Hut",
+    "Pizza Palace",
+];
+questionArray.push(q10);
 
 console.log(questionArray);
 
@@ -42,12 +114,14 @@ function startTimer() {
         if (time <= 0) {
             unanswered++;
             clearInterval(interval);
-            console.log("clearInterval");
+            // console.log("clearInterval");
 
             $("#question").text("Out of Time!");
             $("#right-answer div:first-child").text(`The Correct Answer was: ${questionArray[count][1]}`)
             $("#right-answer")[0].style.display = "block";
+            
             //display answer
+            $("#answers-container")[0].style.display = "none";
 
             //countdown to next question
             clearInterval(interval);
@@ -58,7 +132,7 @@ function startTimer() {
             interval = setInterval(function () {
                 if (time <= 0) {
                     clearInterval(interval);
-                    console.log("clearInterval");
+                    // console.log("clearInterval");
                     $("#right-answer div:first-child").text("");
                     $("#right-answer")[0].style.display = "none";
                     //display next question
@@ -76,9 +150,9 @@ function startTimer() {
 }
 
 function randomizeAnswers() {
-    console.log(`count: ${count}`);
+    // console.log(`count: ${count}`);
     var newQuestion = questionArray[count];
-    console.log(`newQuestion: ${newQuestion}`);
+    // console.log(`newQuestion: ${newQuestion}`);
 
     //creating an array with numbers 1-4 in randomized order
     var arr = [];
@@ -86,7 +160,7 @@ function randomizeAnswers() {
         var rand = Math.floor(Math.random() * (arr.length + 1));
         arr.splice(rand, 0, i);
     }
-    console.log(arr);
+    // console.log(arr);
 
     //Assigning all values of answers to false
     $("#answer1").val(0);
@@ -112,7 +186,7 @@ function randomizeAnswers() {
     } else if (arr[3] == 1) {
         $("#answer4").val(1);
     } else {
-        console.log("Error: correct answer not available")
+        // console.log("Error: correct answer not available")
     }
 
 }
@@ -129,12 +203,12 @@ function newQuestion() {
 
     } else {
         //Show Final Screen
-        console.log("Final Screen")
+        // console.log("Final Screen")
 
         $("#question").text("All done, here's how you did!");
         $("#answers-correct").text(`Correct Answers: ${correct}`);
-        $("#answers-incorrect").text(`Incorrect Answer: ${incorrect}`);
-        $("#answers-blank").text(`Blank Answer: ${unanswered}`);
+        $("#answers-incorrect").text(`Incorrect Answers: ${incorrect}`);
+        $("#answers-blank").text(`Blank Answers: ${unanswered}`);
         $("#start").text("Start Over?");
         $("#timer").empty();
 

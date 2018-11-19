@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Trivia Game</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/style.css" />
@@ -14,32 +15,31 @@
 </head>
 
 <body>
-    <div class="container">
-        <h2>Trivia</h2>
-        <div>
-            <div id="timer"></div>
+    <div class="container" id="main">
+        <h1>Pixar Trivia</h1>
+        <div class="container">
+            <div id="timer" class="text"></div>
 
-            <div>
-                <div id="question"></div>
-                <div id="answers-correct"></div>
-                <div id="answers-incorrect"></div>
-                <div id="answers-blank"></div>
+            <div class="container">
+                <div id="question" class="text"></div>
+                <div id="answers-correct" class="text"></div>
+                <div id="answers-incorrect" class="text"></div>
+                <div id="answers-blank" class="text"></div>
 
-                <div id="start"></div>
+                <div id="start" class="button"></div>
                 <div id="answers-container" class="container">
-                    <div id="answer1" class="answer"></div>
-                    <div id="answer2" class="answer"></div>
-                    <div id="answer3" class="answer"></div>
-                    <div id="answer4" class="answer"></div>
+                    <div id="answer1" class="answer button"></div>
+                    <div id="answer2" class="answer button"></div>
+                    <div id="answer3" class="answer button"></div>
+                    <div id="answer4" class="answer button"></div>
                 </div>
 
-                <div id="right-answer">
+                <div id="right-answer" class="text">
                     <div></div>
                 </div>
             </div>
         </div>
     </div>
-
     <script src="assets/javascript/app.js"></script>
 </body>
 

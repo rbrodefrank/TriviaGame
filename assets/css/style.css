@@ -1,8 +1,95 @@
+body {
+    font-family: 'Merriweather', serif;
+
+    background-color: #86ABD8;
+    background-image: url("../images/pixar-background.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-attachment: fixed;
+}
+
+ h1 {
+    font-size: 40px;
+    font-weight: bold;
+ }
+
+.container {
+    box-sizing: border-box;
+    padding: 20px;
+    align-content: center;
+    text-align: center;
+}
+
+.text {
+    font-size: 35px;
+}
+
+.button {
+    margin: auto;
+    font-size: 24px;
+    max-width: 400px;
+}
+
 #start, .answer {
     box-sizing: border-box;
+    align-content: center;
+}
+
+#start {
+    font-weight: bold;
 }
 
 #start:hover, .answer:hover {
     background-color:  grey;
-    border: 3px, solid, red;
+    border: 3px solid red;
+}
+
+#main {
+    margin: auto;
+    margin-top: 20vh;
+    border: 5px solid black;
+    background-color: rgba(134, 171, 216, 0.7);
+    min-height: 500px;
+}
+
+@media only screen and (max-width: 650px) {
+    body {
+        background-color: #7689B4;
+        background-image: url("../images/lamp-background.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .text{
+        font-size: 24px;
+    }
+    .button {
+        font-size: 18px;
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    #main {
+        margin-top: 15vh;
+    }
+}
+
+@media only screen and (max-height: 700px) {
+    #main {
+        margin-top: 10vh;
+    }
+}
+
+@media only screen and (max-height: 600px) {
+    #main {
+        margin-top: 5vh;
+    }
 }
